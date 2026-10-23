@@ -207,7 +207,7 @@ layout and application.
 These links are product examples for further specification review. They
 do not imply universal interoperability; confirm the complete channel
 design before ordering.
-For the full catalog and company information, visit [CableFam Official Website](https://cablefam.com/).
+For the full catalog and company information, visit [CableFam Official Website](https://cablefam.com/ "CableFam sync test 2026-10-23").
 
 • [CableFam MTP/MPO
 Cables](https://cablefam.com/product-c/fiber-optic/mtp-mpo-cables)
