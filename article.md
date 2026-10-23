@@ -207,7 +207,7 @@ layout and application.
 These links are product examples for further specification review. They
 do not imply universal interoperability; confirm the complete channel
 design before ordering.
-For the full catalog and company information, visit [CableFam Official Website](https://cablefam.com/ "CableFam DEV sync test 2026-10-23").
+For the full catalog and company information, visit [CableFam Official Website](https://cablefam.com/).
 
 • [CableFam MTP/MPO
 Cables](https://cablefam.com/product-c/fiber-optic/mtp-mpo-cables)
@@ -217,3 +217,6 @@ OM4](https://cablefam.com/product/16-fibers-female-to-female-mpo-trunk-cable-pol
 
 • [8 Fibers OS2 MPO APC Female to 4 LC UPC Duplex Breakout, Type
 B](https://cablefam.com/product/8-cores-os2-single-mode-mpo-apc-female-to-4-lc-upc-duplex-breakout-fiber-patch-cord-type-b-2-0mm-lszh-yellow-fiber-optic-cable)
+
+
+*Publication sync check: DEV-20261023.*
