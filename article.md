@@ -219,4 +219,4 @@ OM4](https://cablefam.com/product/16-fibers-female-to-female-mpo-trunk-cable-pol
 B](https://cablefam.com/product/8-cores-os2-single-mode-mpo-apc-female-to-4-lc-upc-duplex-breakout-fiber-patch-cord-type-b-2-0mm-lszh-yellow-fiber-optic-cable)
 
 
-*Publication sync check: DEV-20261023.*
+*Publication sync check: DEV-20261023; BLOGGER-20261026.*
