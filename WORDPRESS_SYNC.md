@@ -23,5 +23,7 @@ A valid token triggers preflight target checks, update, then authenticated readb
 The public permalink must be checked for the first real source-change test.
 
 ## Status 2026-10-27
-Workflow prepared; runtime authorization and push-to-public-page verification pending.
+Verified: OAuth app 151467 authorized with posts scope for site 258218432; WORDPRESS_ACCESS_TOKEN stored in repository Actions Secrets. Source commit e42dc6a4de9dd733be0fb4017466fd13d08319a6 triggered run 40472744088, which succeeded in 16 seconds and verified update/readback. Public page shows the new link tooltip and the same post ID 4/URL.
+The registered callback is https://github.com/jwbing2016-stack/mpo-polarity-docpage-test (WordPress.com rejects redirect URLs containing WordPress). No expiry was returned; do not assume the token can never expire. Routine updates do not depend on browser login.
+Only article.md on this isolated branch triggers synchronization; canonical main-to-test-branch propagation and bulk new-post creation are not configured.
 Free WordPress site; no purchases made. Three backlink spreadsheets unchanged.
