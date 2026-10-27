@@ -1,0 +1,41 @@
+name: WordPress isolated sync
+on:
+  push:
+    branches: [wordpress-sync-test]
+    paths:
+      - article.md
+      - wordpress-sync.json
+      - requirements.txt
+      - scripts/sync_wordpress.py
+      - tests/test_sync_wordpress.py
+      - .github/workflows/wordpress-sync.yml
+permissions:
+  contents: read
+concurrency:
+  group: cablefam-wordpress-sync-test
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Test article preservation and update guards
+        run: python -m unittest discover -s tests -v
+      - name: Validate source and mapping
+        run: python scripts/sync_wordpress.py --dry-run
+      - name: Update mapped WordPress post
+        env:
+          WORDPRESS_ACCESS_TOKEN: ${{ secrets.WORDPRESS_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$WORDPRESS_ACCESS_TOKEN" ]; then
+            echo "::warning::Authorization pending. Validation passed; no WordPress post was published or updated."
+            echo "### Authorization pending — validation only, nothing published" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python scripts/sync_wordpress.py
+          echo "### WordPress update and readback succeeded" >> "$GITHUB_STEP_SUMMARY"
