@@ -1,0 +1,17 @@
+{
+  "username": "cablefam_fiber_optic",
+  "articles": {
+    "mpo-polarity-reference": {
+      "id": 4903363,
+      "url": "https://dev.to/cablefam_fiber_optic/mpo-polarity-type-a-vs-type-b-vs-type-c-what-to-check-before-ordering-4agh",
+      "source_sha256": "da61a6dabb0d5563fd50505cc7c65c4ffa38dc87bb478d75ca7962ec0bffcf08",
+      "remote_sha256": "da61a6dabb0d5563fd50505cc7c65c4ffa38dc87bb478d75ca7962ec0bffcf08"
+    },
+    "lc-fiber-cable-ordering-guide": {
+      "id": 5022405,
+      "url": "https://dev.to/cablefam_fiber_optic/lc-fiber-cable-six-specifications-to-check-before-ordering-40i2",
+      "source_sha256": "4ffe267eacdfcae6a0fdc36dd1bc6aefd226e613ce5e544942846075a16f7f44",
+      "remote_sha256": "4ffe267eacdfcae6a0fdc36dd1bc6aefd226e613ce5e544942846075a16f7f44"
+    }
+  }
+}
