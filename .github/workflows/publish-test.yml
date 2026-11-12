@@ -2,7 +2,7 @@ name: Publish platform test
 on:
   push:
     branches: [platform-sync-test]
-    paths: [article.md, publish-config.json, scripts/publish.py, requirements.txt, .github/workflows/publish-test.yml]
+    paths: [article.md, publish-config.json, scripts/publish.py, requirements.txt]
 permissions:
   contents: write
 concurrency:
@@ -19,18 +19,9 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Validate both payload formats
         run: |
-          python scripts/publish.py dev --dry-run
           python scripts/publish.py blogger --dry-run
           python -c 'from pathlib import Path; import markdown; Path("article.html").write_text(markdown.markdown(Path("article.md").read_text(), extensions=["tables", "fenced_code"]), encoding="utf-8")'
-      - name: Publish or update DEV
-        env:
-          DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
-        run: |
-          if [ -n "$DEV_API_KEY" ]; then
-            python scripts/publish.py dev --create
-          else
-            echo "DEV skipped: DEV_API_KEY has not been configured"
-          fi
+      # DEV moved to dev-sync.yml; this legacy source remains for Blogger only.
       - name: Publish or update Blogger
         if: always()
         env:

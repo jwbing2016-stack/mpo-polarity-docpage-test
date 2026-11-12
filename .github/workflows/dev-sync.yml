@@ -1,0 +1,47 @@
+name: DEV article sync
+on:
+  push:
+    branches: [platform-sync-test]
+    paths:
+      - 'dev/articles/*.md'
+      - scripts/sync_dev.mjs
+      - tests/sync_dev.test.mjs
+      - .github/workflows/dev-sync.yml
+permissions:
+  contents: write
+concurrency:
+  group: cablefam-platform-sync-test
+  cancel-in-progress: false
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: platform-sync-test
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test article mapping and duplicate guards
+        run: node --test tests/sync_dev.test.mjs
+      - name: Sync DEV articles only
+        env:
+          DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
+        run: node scripts/sync_dev.mjs
+      - name: Save DEV article IDs even after a readback failure
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dev/publish-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Save DEV per-article IDs"
+            git push origin HEAD:platform-sync-test
+          fi
+      - name: Preserve ID recovery file if the job failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-publication-state
+          path: dev/publish-state.json
