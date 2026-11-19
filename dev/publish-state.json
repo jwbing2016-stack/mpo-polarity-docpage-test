@@ -12,6 +12,12 @@
       "url": "https://dev.to/cablefam_fiber_optic/lc-fiber-cable-six-specifications-to-check-before-ordering-40i2",
       "source_sha256": "4ffe267eacdfcae6a0fdc36dd1bc6aefd226e613ce5e544942846075a16f7f44",
       "remote_sha256": "4ffe267eacdfcae6a0fdc36dd1bc6aefd226e613ce5e544942846075a16f7f44"
+    },
+    "mini-displayport-vs-displayport": {
+      "id": 5072336,
+      "url": "https://dev.to/cablefam_fiber_optic/mini-displayport-vs-displayport-which-cable-do-you-need-3lo3",
+      "source_sha256": "72e31ea6bc21309006f2587374097a54df3bc1a341262c37cf4e7082ccd104db",
+      "remote_sha256": "72e31ea6bc21309006f2587374097a54df3bc1a341262c37cf4e7082ccd104db"
     }
   }
 }
